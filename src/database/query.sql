@@ -13,3 +13,6 @@ CREATE TABLE juegos (
 
 SELECT * FROM playstation;
 
+CREATE USER 'sony'@'localhost' IDENTIFIED BY 'sony';
+GRANT ALL PRIVILEGES ON playstation.* TO 'sony'@'localhost';
+GRANT ALL PRIVILEGES ON *.* TO 'sony'@'localhost';
