@@ -80,9 +80,9 @@ router.post('/edit/:id',  upload.single('file'), async (req, res) => {
             const file = req.file
             const imagen_original = file.originalname
             const imagen = file.filename
-            editJuego = { publisher, release_date,pegi_info, imagen, imagen}
+            editJuego = { game,console,publisher, release_date,pegi_info, imagen}
         }else{
-            editJuego = {publisher, release_date,pegi_info}
+            editJuego = {game,console,publisher, release_date,pegi_info}
         }
         await pool.query('UPDATE juegos SET ? WHERE id = ?', [editJuego, id]);
         res.redirect('/list');
