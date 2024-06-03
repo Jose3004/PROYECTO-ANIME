@@ -5,7 +5,7 @@ import {join, dirname} from 'path'
 import {fileURLToPath} from 'url'
 import {engine} from 'express-handlebars'
 import juegosRoutes from './routes/juegos.routes.js'
-
+import infoRoutes from './routes/info.routes.js'
 /* ----------------------------- initialization ----------------------------- */
 const app = express();
 /*Evitar colisiones de nombre de variable*/
@@ -33,6 +33,8 @@ app.get('/', (req, res) => {
 });
 
 app.use(juegosRoutes);
+app.use(infoRoutes)
+
 
 /* ------------------------------ Public files ------------------------------ */
 app.use(express.static(join(__dirname, 'public')))
